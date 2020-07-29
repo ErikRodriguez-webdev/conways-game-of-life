@@ -36,16 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/**************************************/
-
-.theGrid {
-  background: lightgrey;
-  width: 100%;
-}
-
-.gridCell {
-  width: 25px;
-  height: 25px;
-  border: 1px solid red;
-}
