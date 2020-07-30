@@ -4,7 +4,6 @@ import "../App.css";
 const Info = () => {
   return (
     <div className="infoPage">
-      <h1>The Game of Life</h1>
       <p>
         The universe of the Game of Life is an infinite, two-dimensional
         orthogonal grid of square cells, each of which is in one of two possible
