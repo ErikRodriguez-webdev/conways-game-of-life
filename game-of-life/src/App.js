@@ -35,12 +35,17 @@ function App() {
   const runningRef = useRef(running);
   runningRef.current = running;
 
-  var genCount = 0;
+  const [generation, setGeneration] = useState(0);
+
+  const genRef = useRef(generation);
+  genRef.current = generation;
 
   const runSimulation = useCallback(() => {
     if (!runningRef.current) {
       return;
     }
+
+    setGeneration(genRef.current + 1);
 
     setGrid((g) => {
       return produce(g, (gridCopy) => {
@@ -62,7 +67,6 @@ function App() {
             }
           }
         }
-        genCount = genCount + 1;
       });
     }, []);
     setTimeout(runSimulation, 1000);
@@ -70,8 +74,9 @@ function App() {
 
   return (
     <div className="game">
+      <h1 style={{ fontSize: 50, width: 150 }}>The Game of Life</h1>
       <div className="gameButtons">
-        <div style={{ color: "white" }}>{`Generation: ${genCount}`}</div>
+        <div style={{ fontSize: 18 }}>{`Generation: ${generation}`}</div>
         <button
           onClick={() => {
             setRunning(!running);
@@ -100,6 +105,7 @@ function App() {
         <button
           onClick={() => {
             setGrid(generateEmptyGrid());
+            setGeneration(0);
           }}
         >
           Clear Grid

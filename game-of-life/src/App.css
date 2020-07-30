@@ -38,9 +38,13 @@
 }
 
 .game {
-  background: darkslategrey;
+  background: silver;
   display: flex;
-  justify-content: center;
+  width: 1000px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px;
+  margin: 0 auto;
 }
 
 .gameButtons {
