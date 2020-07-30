@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.game {
+  background: darkslategrey;
+  display: flex;
+  justify-content: center;
+}
+
+.gameButtons {
+  display: flex;
+  height: 250px;
+  margin: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
