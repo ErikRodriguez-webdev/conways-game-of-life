@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: silver;
 }
 
 .App-logo {
@@ -38,7 +39,6 @@
 }
 
 .game {
-  background: silver;
   display: flex;
   width: 1000px;
   justify-content: space-around;
@@ -62,4 +62,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.infoPage {
+  width: 1000px;
+  margin: 0 auto;
 }

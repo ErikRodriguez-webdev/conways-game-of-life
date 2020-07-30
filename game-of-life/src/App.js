@@ -1,11 +1,13 @@
 import React from "react";
 import Game from "./components/Game";
+import Info from "./components/Info";
 import "./App.css";
 
 const App = () => {
   return (
-    <div>
+    <div className="App">
       <Game />
+      <Info />
     </div>
   );
 };
