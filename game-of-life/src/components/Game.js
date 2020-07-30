@@ -108,6 +108,12 @@ const Game = () => {
   const genRef = useRef(generation);
   genRef.current = generation;
 
+  const numRowsRef = useRef(numRows);
+  numRowsRef.current = numRows;
+
+  const numColsRef = useRef(numCols);
+  numColsRef.current = numCols;
+
   // run main game simulation to continue creating new generations of grids
   const runSimulation = useCallback(() => {
     // check if kill switch is false
@@ -123,8 +129,8 @@ const Game = () => {
     setGrid((lastGen) => {
       return produce(lastGen, (gridCopy) => {
         // traverse through all cells with nested for loops
-        for (let i = 0; i < numRows; i++) {
-          for (let j = 0; j < numCols; j++) {
+        for (let i = 0; i < numRowsRef.current; i++) {
+          for (let j = 0; j < numColsRef.current; j++) {
             // start neighbor count at zero
             let countNeighbors = 0;
 
@@ -133,7 +139,12 @@ const Game = () => {
               const newI = i + x;
               const newJ = j + y;
               // find all neighbors and add to count
-              if (newI >= 0 && newI < numRows && newJ >= 0 && newJ < numCols) {
+              if (
+                newI >= 0 &&
+                newI < numRowsRef.current &&
+                newJ >= 0 &&
+                newJ < numColsRef.current
+              ) {
                 // then dead neighbors are worth 0 and alive neighbors are worth 1
                 countNeighbors += lastGen[newI][newJ];
               }
@@ -198,6 +209,9 @@ const Game = () => {
         </button>
         <p>Custom Grid Size</p>
         <button onClick={() => customGrid(5)}>5 x 5</button>
+        <button onClick={() => customGrid(10)}>10 x 10</button>
+        <button onClick={() => customGrid(15)}>15 x 15</button>
+        <button onClick={() => customGrid(25)}>25 x 25</button>
       </div>
       <div
         style={{
